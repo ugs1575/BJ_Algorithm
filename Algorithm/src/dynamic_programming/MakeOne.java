@@ -1,7 +1,7 @@
 package dynamic_programming;
 import java.util.*;
-//1463 1·Î¸¸µé±â
-//Top-Down ¹æ½Ä
+//1463 1ë¡œë§Œë“¤ê¸°
+//Top-Down ë°©ì‹
 
 
 public class MakeOne {
