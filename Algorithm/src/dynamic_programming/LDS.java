@@ -14,15 +14,15 @@ public class LDS {
 		}
 		
 		for(int i=n-2; i>=0; i--) {
-			int max = 0;
+			int max = d[i];
 			for(int j=i+1; j<n; j++) {
 				if(a[i]>a[j]) {
 					if(max < d[j]+1) {
 						max = d[j]+1;
+						d[i] = max;
 					}
 				}
 			}
-			d[i] = max;
 		}
 		
 		int ans = d[0];
