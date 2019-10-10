@@ -1,4 +1,4 @@
-package dynamic_programming;
+package math1;
 import java.util.*;
 
 public class GCD {
