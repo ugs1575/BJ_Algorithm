@@ -1,7 +1,7 @@
 package math1;
 import java.util.Scanner;
 
-public class Conversion {
+public class Conversion2 {
 	public static String str = "";
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
