@@ -14,12 +14,13 @@ public class OctoToDeci {
 			ans.append(str);
 		}
 		
+		
 		int compare = Character.compare(ans.charAt(0), '0');
-		if(compare == 0 && n.length()!=1) {
-			ans.delete(0,1);
-		}else if(ans.equals("0") || ans.equals("1")) {
+		int compare2 = Character.compare(ans.charAt(1), '0');
+		if(compare == 0 && compare2 == 0) {
 			ans.delete(0,2);
-			System.out.print("hi");
+		}else if(compare == 0) {
+			ans.delete(0,1);
 		}
 		
 		System.out.print(ans);
