@@ -1,7 +1,18 @@
+/*나머지가 두자리 수일 때 reverse를 하게 되면 한 숫자인데 역순으로 출력하게 되므로
+StringBuilder는 쓰면 안됨*/
 package math1;
 import java.util.*;
 
 public class BaseConversion {
+	public static void convert(int num, int base) {
+        if (num == 0) {
+            return;
+        }
+
+        convert(num/base, base);
+        System.out.print(num%base + " ");
+
+    }
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		int a = sc.nextInt();
@@ -15,26 +26,7 @@ public class BaseConversion {
 			sum += num * Math.pow(a, i);
 		}
 		
-		
-		//10진법 -> b진법
-		boolean stop = false;
-		StringBuilder sb = new StringBuilder();
-		while(!stop) {
-			int moc = sum/b;
-			int nmg = sum%b;
-			sb.append(Integer.toString(nmg));
-			if(moc == 0) {
-				stop = true;
-			}else {
-				sum = moc;
-			}
-		}
-		
-		sb.reverse();
-		
-		for(int i=0; i<sb.length(); i++) {
-			System.out.print(sb.charAt(i)+" ");
-		}
+		convert(sum, b);
 	
 	}
 }
