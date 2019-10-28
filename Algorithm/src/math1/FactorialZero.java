@@ -2,11 +2,19 @@ package math1;
 import java.util.*;
 
 public class FactorialZero {
+	public static long fac(int n) {
+		long one = 1L;
+		if(n==1) {
+			return one;
+		}else {
+			return n*fac(n-1);
+		}
+	}
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
-		long n = sc.nextLong();
+		int n = sc.nextInt();
 		long ans = fac(n);
-		System.out.println(ans);
+		System.out.print(ans);
 		/*String ans2 = Integer.toString(ans);
 		char[] char_arr = ans2.toCharArray();
 		int cnt = 0;
@@ -23,7 +31,7 @@ public class FactorialZero {
 		
 	}
 	
-	public static long fac(long n) {
+/*	public static long fac(long n) {
 		Long one = new Long(1);
 		Long zero = new Long(0);
 		Long nObj = new Long(n);
@@ -34,5 +42,5 @@ public class FactorialZero {
 		}else {
 			return n*fac(n-1);
 		}
-	}
+	}*/
 }
