@@ -11,6 +11,7 @@
  * object 안에 들어있는 long 수치가 같은지 비교하려면 equals 메소드를 사용해야 합니다. */
 
 //두번째 소스
+package sort;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
