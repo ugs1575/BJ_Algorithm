@@ -10,6 +10,9 @@
 1
 1
 
+2
+1 2
+
 */
 
 package bruteForce;
@@ -36,6 +39,9 @@ public class NextPermutation_10972 {
 	}
 	
 	public static boolean next_permutation(int[] arr) {
+		if(arr.length <= 1) {
+			return true;
+		}
 		//오른쪽->왼쪽 가장 긴 내림차순을 찾는다
 		int pivot = arr[arr.length-2];
 		int pivotIdx = arr.length-2;
@@ -100,11 +106,7 @@ public class NextPermutation_10972 {
 			arr[i] = sc.nextInt();
 		}
 		
-		boolean finalPermutation = true;
-		if(n != 1) {
-			finalPermutation = next_permutation(arr);
-		}
-		
+		boolean	finalPermutation = next_permutation(arr);
 		
 		if(finalPermutation) {
 			for(int i=0; i<n; i++) {
