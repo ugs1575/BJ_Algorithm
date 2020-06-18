@@ -42,7 +42,7 @@ public class NM10_15664 {
 		}else {
 			for(int i=start; i<=end && end-i+1 >= m-index; i++) {
 				ans[index] = arr[i];
-				permute(index+1, start+1, end);
+				permute(index+1, i+1, end);
 			} 
 		}
 		

@@ -13,6 +13,9 @@
 2
 1 2
 
+7
+1 2 3 4 5 6 7
+
 */
 
 package bruteForce;
@@ -20,78 +23,59 @@ package bruteForce;
 import java.util.*;
 
 public class NextPermutation_10972 {
-	public static int[] swap(int[] arr, int idx1, int idx2) {
-		int temp = arr[idx1];
-		arr[idx1] = arr[idx2];
-		arr[idx2] = temp;
-		
-		return arr;
+	public static int[] swap(int[] data, int left, int right) {
+		 // Swap the data 
+        int temp = data[left]; 
+        data[left] = data[right]; 
+        data[right] = temp; 
+  
+        // Return the updated array 
+        return data; 
 	}
 	
-	public static int[] reverse(int[] arr, int start, int last) {
-		while(start < last) {
-			int temp = arr[start];
-			arr[start++] = arr[last];
-			arr[last--] = temp;
+	public static int[] reverse(int[] data, int left, int right) {
+		while(left < right) {
+			int temp = data[left];
+			data[left++] = data[right];
+			data[right--] = temp;
 		}
 		
-		return arr;
+		return data;
 	}
 	
-	public static boolean next_permutation(int[] arr) {
-		if(arr.length <= 1) {
+	public static boolean findNextPermutation(int[] data) {
+		if(data.length <= 1) {
 			return true;
 		}
-		//오른쪽->왼쪽 가장 긴 내림차순을 찾는다
-		int pivot = arr[arr.length-2];
-		int pivotIdx = arr.length-2;
-		boolean finalPermute = false;
 		
-		for(int i=arr.length-2; i>=0; i--) {
-			if(arr[i] < arr[i+1]) {
-				pivot = arr[i];
-				pivotIdx = i;
+		//오른쪽->왼쪽 가장 긴 내림차순을 찾는다
+		int last = data.length-2;
+		
+		while(last >= 0) {
+			if(data[last] < data[last+1]) {
 				break;
 			}
-			
-			if(i == 0)
-				finalPermute = true;
+			last --;
 		}
 		
-		System.out.println("pivotIdx : "+pivotIdx);
-		
 		//마지막 순열일 때
-		if(finalPermute) {
+		if(last < 0) {
 			return false;
 		}
 		
-		int min = arr[pivotIdx+1];
-		int minIdx = pivotIdx+1;
+		int nextGreater = data.length - 1;
 		
 		//suffix 중 pivot 보다 큰 값들 중 가장 작은 값을 찾는다.
-		for(int i=pivotIdx+2; i<arr.length; i++) {
-			if(arr[i] > pivot && min > arr[i] ) {
-				min = arr[i];
-				minIdx = i;
+		for(int i=data.length - 1; i>last; i--) {
+			if(data[i] > data[last]) {
+				nextGreater = i;
+				break;
 			}
 		}
 		
-		System.out.println("minIdx : "+minIdx);
+		data = swap(data, nextGreater, last);
 		
-		arr = swap(arr, pivotIdx, minIdx);
-		
-		System.out.print("after swapping : ");
-		for(int i=0; i<arr.length; i++) {
-			System.out.print(arr[i]+" ");
-		}
-		System.out.println();
-		
-		arr = reverse(arr, pivotIdx+1, arr.length-1);
-		System.out.print("after reverse : ");
-		for(int i=0; i<arr.length; i++) {
-			System.out.print(arr[i]+" ");
-		}
-		System.out.println();
+		data = reverse(data, last+1, data.length-1);
 		
 		return true;
 		
@@ -101,21 +85,20 @@ public class NextPermutation_10972 {
 		Scanner sc = new Scanner(System.in);
 		
 		int n = sc.nextInt();
-		int[] arr = new int[n];
+		int[] data = new int[n];
+		
 		for(int i=0; i<n; i++) {
-			arr[i] = sc.nextInt();
+			data[i] = sc.nextInt();
 		}
 		
-		boolean	finalPermutation = next_permutation(arr);
-		
-		if(finalPermutation) {
-			for(int i=0; i<n; i++) {
-				System.out.print(arr[i]);
+		if (!findNextPermutation(data)) 
+            System.out.println("-1"); 
+        else { 
+        	for(int i=0; i<n; i++) {
+				System.out.print(data[i]);
 				if(i != n-1) System.out.print(" ");
 			}
-		}else {
-			System.out.print(-1);
-		}
+        } 
 	}
 	
 	
