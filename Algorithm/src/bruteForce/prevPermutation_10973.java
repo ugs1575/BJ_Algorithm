@@ -43,7 +43,7 @@ public class prevPermutation_10973 {
 		}
 		
 		//만약, last 가 0보다 작으면 첫번째 순열
-		if(last <= 0) {
+		if(last < 0) {
 			return false;
 		}
 		
