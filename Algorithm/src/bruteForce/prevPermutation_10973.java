@@ -1,5 +1,16 @@
 /*5
-1 2 4 3 5*/
+5 4 3 2 1
+
+
+5
+5 4 3 1 2
+
+
+
+*
+*
+*
+*/
 
 package bruteForce;
 
@@ -49,12 +60,12 @@ public class prevPermutation_10973 {
 		
 		//오른쪽부터 last 이전 까지 last보다 작은 값을 찾는다.
 		int nextLower = data.length - 1;
-		while(nextLower > last){
-			if(data[nextLower] < data[last]) {
-				break;
-			}
-			nextLower --;
-		}
+		for (int i = data.length - 1; i > last; i--) { 
+            if (data[i] < data[last]) { 
+            	nextLower = i; 
+                break; 
+            } 
+        } 
 		
 		data = swap(data, last, nextLower);
 		
