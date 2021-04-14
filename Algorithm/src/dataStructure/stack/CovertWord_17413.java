@@ -1,6 +1,7 @@
 package dataStructure.stack;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Stack;
 
 public class CovertWord_17413 {
     public static void main(String[] args) {
