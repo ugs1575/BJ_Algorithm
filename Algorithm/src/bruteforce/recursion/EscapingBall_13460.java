@@ -2,9 +2,9 @@ package bruteforce.recursion;
 
 import java.util.Scanner;
 
-class Pair{
+class Pair3{
     int x, y;
-    Pair(int x, int y){
+    Pair3(int x, int y){
         this.x = x;
         this.y = y;
     }
@@ -15,7 +15,7 @@ public class EscapingBall_13460 {
     static int[] dy = {1,0,0,-1};
     static int n, m = 0;
     static char[][] a;
-    static int go(Pair blue, Pair red, int move, int direction){
+    static int go(Pair3 blue, Pair3 red, int move, int direction){
         int ans = -1;
         if(move > 10){
             return -1;
@@ -72,7 +72,7 @@ public class EscapingBall_13460 {
 
             for(int i=0; i<4; i++){
                 if(i != direction && i != 3-direction){
-                    int res = go(new Pair(blue_x, blue_y), new Pair(red_x, red_y), move+1, i);
+                    int res = go(new Pair3(blue_x, blue_y), new Pair3(red_x, red_y), move+1, i);
                     if(res != -1){
                         if(ans == -1){
                             ans = res;
@@ -96,8 +96,8 @@ public class EscapingBall_13460 {
         a = new char[n][m];
         sc.nextLine();
 
-        Pair red = new Pair(0,0);
-        Pair blue = new Pair(0,0);
+        Pair3 red = new Pair3(0,0);
+        Pair3 blue = new Pair3(0,0);
 
         for(int i=0; i<n; i++){
             String s = sc.nextLine();
@@ -105,11 +105,11 @@ public class EscapingBall_13460 {
                 a[i][j] = s.charAt(j);
                 if(a[i][j] == 'B'){
                     a[i][j] = '.';
-                    blue = new Pair(i,j);
+                    blue = new Pair3(i,j);
                 }
                 if(a[i][j] == 'R'){
                     a[i][j] = '.';
-                    red = new Pair(i,j);
+                    red = new Pair3(i,j);
                 }
 
             }

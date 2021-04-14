@@ -2,9 +2,9 @@ package bruteforce.etc;
 
 import java.util.Scanner;
 
-class Pair4{
+class Pair20{
     int r, c, s;
-    Pair4(int r, int c, int s){
+    Pair20(int r, int c, int s){
         this.r = r;
         this.c = c;
         this.s = s;
@@ -15,7 +15,7 @@ public class TurnArray_17406 {
     static int[] dy = {1,0,-1,0};
     static int n, m, k;
     static int[][] a;
-    static Pair4[] oper;
+    static Pair20[] oper;
     static int calc(int[][] b){
         int min = Integer.MAX_VALUE;
         for(int i=0; i<n; i++){
@@ -71,7 +71,7 @@ public class TurnArray_17406 {
             }
             //순서대로 돌리기
             for(int i=0; i<k; i++){
-                Pair4 p = oper[order[i]];
+                Pair20 p = oper[order[i]];
                 turn(b, p.r-p.s, p.c-p.s, p.r+p.s, p.c+p.s);
             }
 
@@ -102,7 +102,7 @@ public class TurnArray_17406 {
         m = sc.nextInt();
         k = sc.nextInt();
         a = new int[n][m];
-        oper = new Pair4[k];
+        oper = new Pair20[k];
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
                 a[i][j] = sc.nextInt();
@@ -113,7 +113,7 @@ public class TurnArray_17406 {
             int r = sc.nextInt();
             int c = sc.nextInt();
             int s = sc.nextInt();
-            oper[i] = new Pair4(r, c, s);
+            oper[i] = new Pair20(r, c, s);
         }
 
         int[] order = new int[k];

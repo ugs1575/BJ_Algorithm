@@ -13,10 +13,10 @@ package graph.bfs;
 
 import java.util.*;
 
-class Pair4{
+class Pair22{
     int x;
     int y;
-    Pair4(int x, int y){
+    Pair22(int x, int y){
         this.x = x;
         this.y = y;
     }
@@ -30,18 +30,18 @@ public class Lab_14502 {
     static int n,m;
 
     static int bfs(){
-        Queue<Pair4> q = new LinkedList<Pair4>();
+        Queue<Pair22> q = new LinkedList<Pair22>();
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
                 map2[i][j] = map[i][j];
                 if (map2[i][j] == 2) {
-                    q.add(new Pair4(i, j));
+                    q.add(new Pair22(i, j));
                 }
             }
         }
 
         while (!q.isEmpty()){
-            Pair4 p = q.remove();
+            Pair22 p = q.remove();
             int x = p.x;
             int y = p.y;
 
@@ -51,7 +51,7 @@ public class Lab_14502 {
                 if(0 <= nx && nx < n && 0 <= ny && ny < m){
                     if(map2[nx][ny] == 0){
                         map2[nx][ny] = 2;
-                        q.add(new Pair4(nx, ny));
+                        q.add(new Pair22(nx, ny));
                     }
                 }
 

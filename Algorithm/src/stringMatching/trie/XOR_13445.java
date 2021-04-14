@@ -65,7 +65,7 @@ class Trie6{
         return search(root, number, 20, k);
     }
 }
-public class XOR_1344 {
+public class XOR_13445 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
